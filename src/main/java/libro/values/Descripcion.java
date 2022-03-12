@@ -1,14 +1,15 @@
 package libro.values;
 
 import co.com.sofka.domain.generic.ValueObject;
+import libro.entity.values.PaginaTotal;
 
 public class Descripcion implements ValueObject<Descripcion.Props> {
 
     private final String resumen;
     private final Integer capitulos;
-    private final Integer paginas;
+    private final PaginaTotal paginas;
 
-    public Descripcion(String resumen, Integer capitulos, Integer paginas) {
+    public Descripcion(String resumen, Integer capitulos, PaginaTotal paginas) {
         this.resumen = resumen;
         this.capitulos = capitulos;
         this.paginas = paginas;
@@ -28,7 +29,7 @@ public class Descripcion implements ValueObject<Descripcion.Props> {
             }
 
             @Override
-            public Integer paginas() {
+            public PaginaTotal paginas() {
                 return paginas;
             }
         };
@@ -37,6 +38,6 @@ public class Descripcion implements ValueObject<Descripcion.Props> {
     public interface Props {
         String resumen();
         Integer capitulos();
-        Integer paginas();
+        PaginaTotal paginas();
     }
 }
