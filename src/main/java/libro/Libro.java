@@ -1,6 +1,7 @@
 package libro;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import libro.entity.Autor;
 import libro.entity.Progreso;
 import libro.entity.values.AutorId;
@@ -12,6 +13,7 @@ import libro.events.ResennaAdicionada;
 import libro.values.*;
 import reseña.values.ResennaId;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -33,6 +35,12 @@ public class Libro extends AggregateEvent<LibroId> {
     private Libro(LibroId libroId) {
         super(libroId);
         subscribe(new LibroChange(this));
+    }
+
+    public static Libro from(LibroId libroId, List<DomainEvent> events) {
+        var libro = new Libro(libroId);
+        events.forEach(libro::applyEvent);
+        return libro;
     }
 
     //BEHAVIOURS
