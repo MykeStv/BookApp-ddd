@@ -6,13 +6,11 @@ import java.util.Objects;
 
 public class DatosPersonales implements ValueObject<DatosPersonales.Props>  {
     //ATRIBUTES
-    private final String username;
     private final String nombre;
     private final String email;
 
     //CONSTRUCTOR
-    public DatosPersonales(String username, String nombre, String email) {
-        this.username = Objects.requireNonNull(username);
+    public DatosPersonales(String nombre, String email) {
         this.nombre = Objects.requireNonNull(nombre);
         this.email = Objects.requireNonNull(email);
     }
@@ -20,11 +18,6 @@ public class DatosPersonales implements ValueObject<DatosPersonales.Props>  {
     @Override
     public Props value() {
         return new Props() {
-            @Override
-            public String username() {
-                return username;
-            }
-
             @Override
             public String nombre() {
                 return nombre;
@@ -38,7 +31,6 @@ public class DatosPersonales implements ValueObject<DatosPersonales.Props>  {
     }
 
     public interface Props {
-        String username();
         String nombre();
         String email();
     }
