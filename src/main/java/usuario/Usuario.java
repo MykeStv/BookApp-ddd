@@ -1,6 +1,7 @@
 package usuario;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import libro.values.LibroId;
 import usuario.events.EmailCambiado;
 import usuario.events.NombreCambiado;
@@ -8,6 +9,7 @@ import usuario.events.UsernameCambiado;
 import usuario.events.UsuarioCreado;
 import usuario.values.*;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -31,6 +33,15 @@ public class Usuario extends AggregateEvent<UsuarioId> {
         super(usuarioId);
         subscribe(new UsuarioChange(this));
     }
+
+    //Historial de eventos
+    public static Usuario from(UsuarioId usuarioId, List<DomainEvent> events) {
+        var usuario = new Usuario(usuarioId);
+        events.forEach(usuario::applyEvent);
+
+        return usuario;
+    }
+
 
     //BEHAVIOURS
     public void cambiarUsername(Username username) {
