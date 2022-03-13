@@ -15,7 +15,7 @@ public class LibroIngresado extends DomainEvent {
 
 
     public LibroIngresado(Contenido contenido, AutorId autorId, Nombre nombre, Descripcion descripcion) {
-        super("bookapp.libro.librocreado");
+        super("bookapp.libro.libroingresado");
         this.contenido = contenido;
         this.autorId = autorId;
         this.nombre = nombre;

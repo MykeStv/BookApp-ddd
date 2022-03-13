@@ -4,12 +4,12 @@ import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import domain.libro.Libro;
-import domain.libro.commands.IngesarLibro;
+import domain.libro.commands.IngresarLibro;
 
-public class IngresarLibroUseCase extends UseCase<RequestCommand<IngesarLibro>, ResponseEvents> {
+public class IngresarLibroUseCase extends UseCase<RequestCommand<IngresarLibro>, ResponseEvents> {
 
     @Override
-    public void executeUseCase(RequestCommand<IngesarLibro> input) {
+    public void executeUseCase(RequestCommand<IngresarLibro> input) {
         //Get the command from the request
         var command = input.getCommand();
 

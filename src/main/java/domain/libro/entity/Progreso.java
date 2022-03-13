@@ -2,7 +2,7 @@ package domain.libro.entity;
 
 import co.com.sofka.domain.generic.Entity;
 import domain.libro.entity.values.*;
-import libro.entity.values.*;
+import domain.libro.entity.values.*;
 
 public class Progreso extends Entity<ProgresoId> {
 

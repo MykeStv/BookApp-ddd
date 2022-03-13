@@ -7,7 +7,7 @@ import domain.libro.values.Contenido;
 import domain.libro.values.Descripcion;
 import domain.libro.values.LibroId;
 
-public class IngesarLibro extends Command {
+public class IngresarLibro extends Command {
 
     private final LibroId libroId;
     private final Contenido contenido;
@@ -15,7 +15,7 @@ public class IngesarLibro extends Command {
     private final Nombre nombre;
     private final Descripcion descripcion;
 
-    public IngesarLibro(LibroId libroId, Contenido contenido, AutorId autorId, Nombre nombre, Descripcion descripcion) {
+    public IngresarLibro(LibroId libroId, Contenido contenido, AutorId autorId, Nombre nombre, Descripcion descripcion) {
 
         this.libroId = libroId;
         this.contenido = contenido;
