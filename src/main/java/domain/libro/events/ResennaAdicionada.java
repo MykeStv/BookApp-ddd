@@ -5,14 +5,14 @@ import domain.reseña.values.ResennaId;
 
 public class ResennaAdicionada extends DomainEvent {
 
-    private final ResennaId reseñaId;
+    private final ResennaId resennaId;
 
     public ResennaAdicionada(ResennaId reseñaId) {
         super("bookapp.libro.reseñaadicionada");
-        this.reseñaId = reseñaId;
+        this.resennaId = reseñaId;
     }
 
-    public ResennaId getReseñaId() {
-        return reseñaId;
+    public ResennaId getResennaId() {
+        return resennaId;
     }
 }

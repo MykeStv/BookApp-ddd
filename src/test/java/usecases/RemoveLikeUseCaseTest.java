@@ -4,7 +4,6 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
-import domain.reseña.commands.AgregarLike;
 import domain.reseña.commands.RemoverLike;
 import domain.reseña.events.LikeAgregado;
 import domain.reseña.events.LikeRemovido;

@@ -27,7 +27,7 @@ public class LibroChange extends EventChange {
         });
 
         apply((ResennaAdicionada event) -> {
-            libro.reseñas.add(event.getReseñaId());
+            libro.reseñas.add(event.getResennaId());
         });
 
 

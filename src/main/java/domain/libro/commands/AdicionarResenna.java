@@ -4,22 +4,22 @@ import co.com.sofka.domain.generic.Command;
 import domain.libro.values.LibroId;
 import domain.reseña.values.ResennaId;
 
-public class AdicionarReseña extends Command {
+public class AdicionarResenna extends Command {
 
     private final LibroId libroId;
-    private final ResennaId reseñaId;
+    private final ResennaId resennaId;
 
-    public AdicionarReseña(LibroId libroId, ResennaId reseñaId) {
+    public AdicionarResenna(LibroId libroId, ResennaId reseñaId) {
 
         this.libroId = libroId;
-        this.reseñaId = reseñaId;
+        this.resennaId = reseñaId;
     }
 
     public LibroId getLibroId() {
         return libroId;
     }
 
-    public ResennaId getReseñaId() {
-        return reseñaId;
+    public ResennaId getResennaId() {
+        return resennaId;
     }
 }
