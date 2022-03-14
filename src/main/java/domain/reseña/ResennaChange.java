@@ -36,7 +36,7 @@ public class ResennaChange extends EventChange {
             if (likes.value() <= 0) {
                 throw new IllegalArgumentException("No puede tener likes negativos");
             }
-            resenna.likes = likes.removeLike();
+            resenna.likes = event.getLike();
         });
 
         apply((ComentarioAgregado event) -> {

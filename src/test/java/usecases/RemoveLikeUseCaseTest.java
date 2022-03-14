@@ -4,9 +4,10 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
-import domain.reseña.Resenna;
 import domain.reseña.commands.AgregarLike;
+import domain.reseña.commands.RemoverLike;
 import domain.reseña.events.LikeAgregado;
+import domain.reseña.events.LikeRemovido;
 import domain.reseña.events.ResennaCreada;
 import domain.reseña.values.Critica;
 import domain.reseña.values.Like;
@@ -24,20 +25,20 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-class AgregarLikeUseCaseTest {
+class RemoveLikeUseCaseTest {
 
     @Mock
     private DomainEventRepository repository;
 
     @Test
-    void agregarLike() {
+    void removerLike() {
         System.out.println("Test: Agregar like o likear");
 
         //ARRANGE
         ResennaId resennaId = ResennaId.of("rrzzxx123");
 
-        var command = new AgregarLike(resennaId);
-        var usecase = new AgregarLikeUseCase();
+        var command = new RemoverLike(resennaId);
+        var usecase = new RemoveLikeUseCase();
 
         Mockito.when(repository.getEventsBy(resennaId.value())).thenReturn(EventHistory());
         usecase.addRepository(repository);
@@ -50,12 +51,11 @@ class AgregarLikeUseCaseTest {
                 .getDomainEvents();
 
         //ASSERT
-        var event = (LikeAgregado) events.get(0);
+        var event = (LikeRemovido) events.get(0);
 
-        Assertions.assertEquals("bookapp.resenna.likeagregado", event.type);
+        Assertions.assertEquals("bookapp.resenna.likeremovido", event.type);
         Assertions.assertEquals(resennaId.value(), event.aggregateRootId());
-        Assertions.assertEquals(4, event.getLike().value());
-
+        Assertions.assertEquals(5, event.getLike().value());
         System.out.println(event.getLike().value());
     }
 
@@ -63,13 +63,15 @@ class AgregarLikeUseCaseTest {
 
         return List.of(
                 new ResennaCreada(
-                        new Critica("This is a critic for the book The way of kings"),
-                        UsuarioId.of("xxx123xxx")
+                        new Critica("This is a critic for the book Words of Radiance"),
+                        UsuarioId.of("xxx456xxx")
                 ),
                 new LikeAgregado(new Like(1)),
                 new LikeAgregado(new Like(2)),
-                new LikeAgregado(new Like(3))
+                new LikeAgregado(new Like(7)),
+                new LikeRemovido(new Like(6))
         );
     }
+
 
 }

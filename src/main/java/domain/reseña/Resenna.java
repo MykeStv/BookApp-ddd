@@ -61,7 +61,8 @@ public class Resenna extends AggregateEvent<ResennaId> {
     }
 
     public void removerLike() {
-        appendChange(new LikeRemovido()).apply();
+        var like = likes.removeLike();
+        appendChange(new LikeRemovido(like)).apply();
     }
 
 
