@@ -22,8 +22,7 @@ public class Usuario extends AggregateEvent<UsuarioId> {
     protected Username username;
     protected Nombre nombre;
     protected Email email;
-    //Todo: realizar los metodos para el agregado libros
-    protected Set<LibroId> libros;
+
 
 
     //CONSTRUCTOR

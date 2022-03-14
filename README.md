@@ -4,7 +4,7 @@
 
 ## Links
 
-**video link:**
+**video link:** https://youtu.be/qv5xr-bUEEE
 
 **Modelo de dominio:** https://drive.google.com/file/d/12UXhno0dJyD6Q9_mIa2-ZBOnFK8VjKPg/view?usp=sharing
 
