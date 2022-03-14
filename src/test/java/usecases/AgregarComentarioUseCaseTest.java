@@ -61,7 +61,7 @@ class AgregarComentarioUseCaseTest {
         Assertions.assertEquals(comentarioId.value(), event.getComentarioId().value());
         Assertions.assertEquals(comment.value(), event.getComment().value());
         Assertions.assertEquals("Arthur", event.getUser().value());
-
+        
     }
 
     private List<DomainEvent> EventHistory() {
@@ -70,7 +70,9 @@ class AgregarComentarioUseCaseTest {
                 new ResennaCreada(
                         new Critica("This is a critic for the book The way of kings"),
                         UsuarioId.of("xxx123xxx")
-                )
+                ),
+                new ComentarioAgregado(ComentarioId.of("1"), new Comment("nice review"), new User("Cassandra")),
+                new ComentarioAgregado(ComentarioId.of("2"), new Comment("As you said, life before death"), new User("Absalon"))
         );
     }
 
